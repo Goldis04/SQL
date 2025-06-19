@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.freefair.lombok" version "8.13.1"
 }
 
 group 'ru.netology'
@@ -20,21 +21,19 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
     testImplementation 'com.codeborne:selenide:6.19.1'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
-    testImplementation 'io.rest-assured:rest-assured:5.5.0'
-    testImplementation 'com.google.code.gson:gson:2.13.0'
     testImplementation 'mysql:mysql-connector-java:8.0.30'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
-    testImplementation 'org.slf4j:slf4j-simple:2.0.9'
-    compileOnly 'org.projectlombok:lombok:1.18.32'
-    annotationProcessor 'org.projectlombok:lombok:1.18.32'
-    testCompileOnly 'org.projectlombok:lombok:1.18.32'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
+   // testImplementation 'org.slf4j:slf4j-simple:2.0.9'
+   // compileOnly 'org.projectlombok:lombok:1.18.32'
+    //annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    //testCompileOnly 'org.projectlombok:lombok:1.18.32'
+    //testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
 }
 
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-    systemProperty 'db.url', System.getProperty('db.url', "jdbc:mysql://localhost:3306/db")
+    systemProperty 'db.url', System.getProperty('db.url', "jdbc:mysql://localhost:3306/app")
     systemProperty 'chromeoptions.prefs', System.getProperty('chromeoptions.prefs', "profile.password_manager_leak_detection=false")
 
 }
