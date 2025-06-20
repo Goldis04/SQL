@@ -18,9 +18,9 @@ jobs:
         run: chmod +x gradlew
       - name: Container start
         uses: hoverkraft-tech/compose-action@v2.0.1
-      - name: Start SUT
-        run: java -jar ./artifacts/app-deadline.jar &
       - name: Waiting for сontainer start
         run: sleep 30
+      - name: Start SUT
+        run: java -jar ./artifacts/app-deadline.jar &
       - name: Build with Gradle
         run: ./gradlew test --info -Dselenide.headless=true  
